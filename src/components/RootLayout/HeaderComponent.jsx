@@ -1,16 +1,23 @@
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const { Header } = Layout;
-const items1 = ["1", "2", "3"].map((key) => ({
-  key,
-  label: `nav ${key}`,
+const items1 = ["Profile"].map((key) => ({
+  key: "/profile",
+  label: `${key}`,
 }));
 
 function HeaderComponent({ collapsed, setCollapsed }) {
+  const navigate = useNavigate();
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  const handleNavClick = ({ key }) => {
+    navigate(key);
+  };
 
   return (
     <Header
@@ -32,14 +39,14 @@ function HeaderComponent({ collapsed, setCollapsed }) {
         }}
       />
       <Menu
+        onClick={handleNavClick}
         theme="light"
         mode="horizontal"
-        defaultSelectedKeys={["2"]}
+        // defaultSelectedKeys={["1"]}
         items={items1}
         style={{
           flex: 1,
           minWidth: 0,
-          backgroundColor: "var(--theme-bg)",
         }}
       />
     </Header>

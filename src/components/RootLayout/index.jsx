@@ -11,7 +11,12 @@ function RootLayout() {
   return (
     <Layout>
       <SiderComponent collapsed={collapsed} setCollapsed={setCollapsed} />
-      <Layout style={{ marginLeft: collapsed ? "80px" : "200px" }}>
+      <Layout
+        style={{
+          marginLeft: collapsed ? "80px" : "200px",
+          height: "100vh",
+        }}
+      >
         <HeaderComponent collapsed={collapsed} setCollapsed={setCollapsed} />
         <ContentComponent />
         <FooterComponent />

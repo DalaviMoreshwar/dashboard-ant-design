@@ -10,14 +10,13 @@ root.render(
   <React.StrictMode>
     <ConfigProvider
       theme={{
-        algorithm: [theme.darkAlgorithm],
+        algorithm: [theme.defaultAlgorithm],
         token: {
-          colorText: "#ccc",
-          colorPrimary: "#fafaff",
-          colorPrimaryBg: "#434343",
-          colorBgTextActive: "#595959",
-          colorBgLayout: "#212121", // background color
-          colorBgContainer: "#000",
+          // colorText: "#ccc",
+          colorPrimary: "#096dd9",
+          // colorBgTextActive: "#212121",
+          // colorBgLayout: "#212121", // background color
+          // colorBgContainer: "#141414",
         },
       }}
     >
