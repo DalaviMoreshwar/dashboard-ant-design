@@ -43,6 +43,8 @@ function SiderComponent({ collapsed, setCollapsed }) {
         left: 0,
         top: 0,
         bottom: 0,
+        backgroundColor: "var(--theme-bg)",
+        borderColor: "var(--theme-bg)",
       }}
       breakpoint="md"
       onCollapse={(collapsed, type) => {
@@ -51,10 +53,13 @@ function SiderComponent({ collapsed, setCollapsed }) {
     >
       <div className="demo-logo-vertical" />
       <Menu
-        theme="dark"
+        theme="light"
         mode="inline"
         defaultSelectedKeys={["4"]}
         items={items}
+        style={{
+          backgroundColor: "var(--theme-bg)",
+        }}
       />
     </Sider>
   );

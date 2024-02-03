@@ -1,6 +1,11 @@
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
-import { Button, Layout, theme } from "antd";
+import { Button, Layout, Menu, theme } from "antd";
+
 const { Header } = Layout;
+const items1 = ["1", "2", "3"].map((key) => ({
+  key,
+  label: `nav ${key}`,
+}));
 
 function HeaderComponent({ collapsed, setCollapsed }) {
   const {
@@ -10,10 +15,8 @@ function HeaderComponent({ collapsed, setCollapsed }) {
   return (
     <Header
       style={{
-        // position: "sticky",
-        // top: 0,
-        // zIndex: 1,
-        // width: "100%",
+        display: "flex",
+        alignItems: "center",
         padding: 0,
         background: colorBgContainer,
       }}
@@ -26,6 +29,17 @@ function HeaderComponent({ collapsed, setCollapsed }) {
           fontSize: "16px",
           width: 64,
           height: 64,
+        }}
+      />
+      <Menu
+        theme="light"
+        mode="horizontal"
+        defaultSelectedKeys={["2"]}
+        items={items1}
+        style={{
+          flex: 1,
+          minWidth: 0,
+          backgroundColor: "var(--theme-bg)",
         }}
       />
     </Header>

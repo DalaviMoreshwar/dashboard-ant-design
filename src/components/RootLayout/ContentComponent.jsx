@@ -22,7 +22,14 @@ function ContentComponent() {
           borderRadius: borderRadiusLG,
         }}
       >
-        content
+        <p>Content</p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam magnam
+        molestias a voluptates atque quasi dolor, eum enim dolorum asperiores
+        obcaecati, amet vero, nihil adipisci impedit consequatur. Eius, fugit
+        ab. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt
+        molestiae ratione saepe, ullam voluptate neque asperiores repellat
+        praesentium sequi illum! Ut quam magni architecto corrupti cum tenetur
+        minima, soluta quisquam.
       </div>
     </Content>
   );

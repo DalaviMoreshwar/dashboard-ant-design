@@ -1,15 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ConfigProvider, theme } from 'antd';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ConfigProvider, theme } from "antd";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ConfigProvider theme={{}}>
-    <App />
+    <ConfigProvider
+      theme={{
+        algorithm: [theme.darkAlgorithm],
+        token: {
+          colorText: "#ccc",
+          colorPrimary: "#fafaff",
+          colorPrimaryBg: "#434343",
+          colorBgTextActive: "#595959",
+          colorBgLayout: "#212121", // background color
+          colorBgContainer: "#000",
+        },
+      }}
+    >
+      <App />
     </ConfigProvider>
   </React.StrictMode>
 );
