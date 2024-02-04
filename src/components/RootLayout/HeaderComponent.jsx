@@ -8,8 +8,6 @@ import { Avatar, Button, Layout, Menu, theme } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const { Header } = Layout;
-const url =
-  "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg";
 
 function getItem(label, key, icon, children, type) {
   return {
