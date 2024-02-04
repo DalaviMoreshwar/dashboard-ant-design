@@ -1,12 +1,37 @@
-import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
-import { Button, Layout, Menu, theme } from "antd";
+import {
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  UserOutlined,
+  BellOutlined,
+} from "@ant-design/icons";
+import { Avatar, Button, Layout, Menu, theme } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const { Header } = Layout;
-const items1 = ["Profile"].map((key) => ({
-  key: "/profile",
-  label: `${key}`,
-}));
+const url =
+  "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg";
+
+function getItem(label, key, icon, children, type) {
+  return {
+    label,
+    key,
+    icon,
+    children,
+    type,
+  };
+}
+
+const items1 = [
+  getItem("Notifications", "", <BellOutlined />),
+  getItem(
+    "User",
+    "/profile",
+    <Avatar
+      style={{ justifyContent: "center", backgroundColor: "#ccc" }}
+      icon={<UserOutlined />}
+    />
+  ),
+];
 
 function HeaderComponent({ collapsed, setCollapsed }) {
   const navigate = useNavigate();
@@ -23,9 +48,8 @@ function HeaderComponent({ collapsed, setCollapsed }) {
     <Header
       style={{
         display: "flex",
-        alignItems: "center",
-        padding: 0,
         background: colorBgContainer,
+        padding: 0,
       }}
     >
       <Button
@@ -42,9 +66,12 @@ function HeaderComponent({ collapsed, setCollapsed }) {
         onClick={handleNavClick}
         theme="light"
         mode="horizontal"
-        // defaultSelectedKeys={["1"]}
+        defaultSelectedKeys={["1"]}
         items={items1}
         style={{
+          display: "flex",
+          justifyContent: "end",
+          margin: "auto",
           flex: 1,
           minWidth: 0,
         }}
