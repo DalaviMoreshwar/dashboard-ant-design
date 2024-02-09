@@ -1,4 +1,4 @@
-import { HomeOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import { HomeOutlined, TableOutlined } from "@ant-design/icons";
 import { Avatar, Layout, Menu, Space, Typography } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 const { Sider } = Layout;
@@ -13,8 +13,22 @@ function getItem(label, key, icon, children, type) {
   };
 }
 const items = [
-  getItem("Home", "/", <HomeOutlined />),
-  getItem("Table", "/table", <VideoCameraOutlined />),
+  // getItem("Home", "/", <HomeOutlined />, null, "Dashboard"),
+  getItem(
+    "Dashboard",
+    "grp",
+    null,
+    [getItem("Ecommers", "/", <HomeOutlined />)],
+    "group"
+  ),
+  getItem(
+    "Table",
+    "tbl",
+    null,
+    [getItem("Table", "/table", <TableOutlined />)],
+    "group"
+  ),
+
   // getItem("Navigation One", "sub1", <MailOutlined />, [
   //   getItem(
   //     "Item 1",
@@ -77,7 +91,7 @@ function SiderComponent({ collapsed, setCollapsed }) {
         defaultSelectedKeys={pathname}
         items={items}
         style={{}}
-      ></Menu>
+      />
     </Sider>
   );
 }
