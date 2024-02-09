@@ -1,10 +1,12 @@
-import { Button } from "antd";
+import { Button, Typography } from "antd";
 import React from "react";
+
+const { Paragraph } = Typography;
 
 function Home() {
   return (
     <div>
-      Home
+      <Paragraph>asdmsad</Paragraph>
       <Button type="primary">Click me</Button>
     </div>
   );

@@ -1,28 +1,28 @@
-import React, { useEffect, createContext, useState } from "react";
-
-const ThemeContext = createContext();
+import React, { useEffect, useState } from "react";
+import ThemeContext from "./ThemeContext";
 
 const getTheme = () => {
   const theme = localStorage.getItem("theme");
-  // Default theme is taken as dark-theme
+  // Default theme is taken as dark
   if (!theme) {
-    localStorage.setItem("theme", "dark-theme");
-    return "dark-theme";
+    localStorage.setItem("theme", "dark");
+    return "dark";
   } else {
     return theme;
   }
 };
 
-const ThemeProvider = ({ children }) => {
+export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(getTheme);
 
-  function toggleTheme() {
-    if (theme === "dark-theme") {
-      setTheme("light-theme");
+  const toggleTheme = () => {
+    if (theme === "dark") {
+      setTheme("light");
     } else {
-      setTheme("dark-theme");
+      setTheme("dark");
     }
-  }
+    // setTheme(theme === "light" ? "dark" : "light");
+  };
 
   useEffect(() => {
     const refreshTheme = () => {
@@ -36,13 +36,10 @@ const ThemeProvider = ({ children }) => {
     <ThemeContext.Provider
       value={{
         theme,
-        setTheme,
         toggleTheme,
       }}
     >
       {children}
     </ThemeContext.Provider>
   );
-};
-
-export { ThemeContext, ThemeProvider };
+}

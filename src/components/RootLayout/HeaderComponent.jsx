@@ -3,9 +3,13 @@ import {
   MenuFoldOutlined,
   UserOutlined,
   BellOutlined,
+  MoonOutlined,
+  SunOutlined,
 } from "@ant-design/icons";
-import { Avatar, Button, Layout, Menu, theme } from "antd";
+import { Avatar, Button, Layout, Menu, theme as T } from "antd";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import ThemeContext from "../../context/ThemeContext";
 
 const { Header } = Layout;
 
@@ -33,10 +37,10 @@ const items1 = [
 
 function HeaderComponent({ collapsed, setCollapsed }) {
   const navigate = useNavigate();
-
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const {
     token: { colorBgContainer },
-  } = theme.useToken();
+  } = T.useToken();
 
   const handleNavClick = ({ key }) => {
     navigate(key);
@@ -50,6 +54,15 @@ function HeaderComponent({ collapsed, setCollapsed }) {
         padding: 0,
       }}
     >
+      <Button
+        icon={theme === "light" ? <MoonOutlined /> : <SunOutlined />}
+        onClick={toggleTheme}
+        style={{
+          fontSize: "16px",
+          width: 64,
+          height: 64,
+        }}
+      />
       <Button
         type="text"
         icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
