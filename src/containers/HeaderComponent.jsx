@@ -9,7 +9,7 @@ import {
 import { Avatar, Button, Layout, Menu, theme as T } from "antd";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import ThemeContext from "../../context/ThemeContext";
+import ThemeContext from "../context/ThemeContext";
 
 const { Header } = Layout;
 

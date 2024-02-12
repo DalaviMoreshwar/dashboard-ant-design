@@ -5,8 +5,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import { Home, PageNotFound, Profile, Table } from "./pages";
 
-import RootLayout from "./components/RootLayout";
 import ThemeContext from "./context/ThemeContext";
+import Container from "./containers/Container";
 
 const { defaultAlgorithm, darkAlgorithm } = theme;
 
@@ -15,7 +15,7 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      element: <RootLayout />,
+      element: <Container />,
       errorElement: <PageNotFound />,
       children: [
         { path: "/", element: <Home /> },

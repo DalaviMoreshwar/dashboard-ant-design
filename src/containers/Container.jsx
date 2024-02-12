@@ -5,7 +5,7 @@ import ContentComponent from "./ContentComponent";
 import HeaderComponent from "./HeaderComponent";
 import SiderComponent from "./SiderComponent";
 
-function RootLayout() {
+function Container() {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -25,4 +25,4 @@ function RootLayout() {
   );
 }
 
-export default RootLayout;
+export default Container;

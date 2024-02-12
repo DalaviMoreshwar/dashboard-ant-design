@@ -10,3 +10,6 @@ The single responsibility principle states that a component should have one, and
 - **Enhance Reusability:** When components are focused on a single task, they can be reused across the application and even across different projects.
 - **Facilitate Testing:** Smaller components with single responsibility are much easier to tests.
 - **Improve Maintainability:** When bugs arise and they will, you can pinpoint issues faster in well-organized codebase that follows single responsibility principle (SRP).
+
+
+``````
