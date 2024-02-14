@@ -1,4 +1,4 @@
-import { Button, Typography } from "antd";
+import { Typography } from "antd";
 import React from "react";
 
 const { Paragraph } = Typography;
@@ -6,8 +6,10 @@ const { Paragraph } = Typography;
 function Home() {
   return (
     <div>
-      <Paragraph>asdmsad</Paragraph>
-      <Button type="primary">Click me</Button>
+      <Paragraph>Ecommers Page</Paragraph>
+      <Paragraph>
+        This page will display widgets, analytics, a map and some graphs.
+      </Paragraph>
     </div>
   );
 }

@@ -1,7 +1,10 @@
+import { Typography } from "antd";
 import React from "react";
 
+const { Paragraph } = Typography;
+
 function Table() {
-  return <div>Table</div>;
+  return <Paragraph>Table</Paragraph>;
 }
 
 export default Table;

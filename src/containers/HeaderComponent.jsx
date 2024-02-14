@@ -1,39 +1,24 @@
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  UserOutlined,
   BellOutlined,
   MoonOutlined,
   SunOutlined,
 } from "@ant-design/icons";
-import { Avatar, Button, Layout, Menu, theme as T } from "antd";
+import { Button, Layout, Menu, theme as T } from "antd";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
+import { getMenuItem } from "../utils/customizeMenu";
+import ProfileThumbnail from "../components/ProfileThumbnail";
 
 const { Header } = Layout;
-
-function getItem(label, key, icon, children, type) {
-  return {
-    label,
-    key,
-    icon,
-    children,
-    type,
-  };
-}
-
-const items1 = [
-  getItem("Notifications", "", <BellOutlined />),
-  getItem(
-    "User",
-    "/profile",
-    <Avatar
-      style={{ justifyContent: "center", backgroundColor: "#ccc" }}
-      icon={<UserOutlined />}
-    />
-  ),
-];
+const headerButtonStyle = {
+  border: "none",
+  fontSize: "16px",
+  width: 64,
+  height: 64,
+};
 
 function HeaderComponent({ collapsed, setCollapsed }) {
   const navigate = useNavigate();
@@ -46,6 +31,10 @@ function HeaderComponent({ collapsed, setCollapsed }) {
     navigate(key);
   };
 
+  const items1 = [
+    getMenuItem("Notifications", "/notifications", <BellOutlined />),
+  ];
+
   return (
     <Header
       style={{
@@ -55,24 +44,12 @@ function HeaderComponent({ collapsed, setCollapsed }) {
       }}
     >
       <Button
-        icon={theme === "light" ? <MoonOutlined /> : <SunOutlined />}
-        onClick={toggleTheme}
-        style={{
-          fontSize: "16px",
-          width: 64,
-          height: 64,
-        }}
-      />
-      <Button
         type="text"
         icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         onClick={() => setCollapsed(!collapsed)}
-        style={{
-          fontSize: "16px",
-          width: 64,
-          height: 64,
-        }}
+        style={headerButtonStyle}
       />
+
       <Menu
         onClick={handleNavClick}
         theme="light"
@@ -80,6 +57,7 @@ function HeaderComponent({ collapsed, setCollapsed }) {
         defaultSelectedKeys={["1"]}
         items={items1}
         style={{
+          borderBottom: "1px solid transparent",
           display: "flex",
           justifyContent: "end",
           margin: "auto",
@@ -87,6 +65,17 @@ function HeaderComponent({ collapsed, setCollapsed }) {
           minWidth: 0,
         }}
       />
+      <Button
+        icon={theme === "light" ? <MoonOutlined /> : <SunOutlined />}
+        onClick={toggleTheme}
+        style={headerButtonStyle}
+      />
+      <Link to="/profile">
+        <Button
+          icon={<ProfileThumbnail size="default" />}
+          style={headerButtonStyle}
+        />
+      </Link>
     </Header>
   );
 }

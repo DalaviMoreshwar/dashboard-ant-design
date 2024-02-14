@@ -1,60 +1,25 @@
 import { HomeOutlined, TableOutlined } from "@ant-design/icons";
-import { Avatar, Layout, Menu, Space, Typography } from "antd";
+import { Layout, Menu, Space, Typography } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
+import { getMenuItem } from "../utils/customizeMenu";
+
 const { Sider } = Layout;
 
-function getItem(label, key, icon, children, type) {
-  return {
-    label,
-    key,
-    icon,
-    children,
-    type,
-  };
-}
 const items = [
-  // getItem("Home", "/", <HomeOutlined />, null, "Dashboard"),
-  getItem(
+  getMenuItem(
     "Dashboard",
     "grp",
     null,
-    [getItem("Ecommers", "/", <HomeOutlined />)],
+    [getMenuItem("Ecommers", "/", <HomeOutlined />)],
     "group"
   ),
-  getItem(
+  getMenuItem(
     "Table",
     "tbl",
     null,
-    [getItem("Table", "/table", <TableOutlined />)],
+    [getMenuItem("Table", "/table", <TableOutlined />)],
     "group"
   ),
-
-  // getItem("Navigation One", "sub1", <MailOutlined />, [
-  //   getItem(
-  //     "Item 1",
-  //     "g1",
-  //     null,
-  //     [getItem("Option 1", "#"), getItem("Option 2", "#")],
-  //     "group"
-  //   ),
-  //   getItem(
-  //     "Item 2",
-  //     "g2",
-  //     null,
-  //     [getItem("Option 3", "#"), getItem("Option 4", "#")],
-  //     "group"
-  //   ),
-  // ]),
-  // getItem("User", "/sub1", <LaptopOutlined />, [
-  //   getItem("Tom", "/3"),
-  //   getItem("Bill", "/4"),
-  //   getItem("Alex", "/5"),
-  // ]),
-  // getItem("Team", "/sub2", <UserOutlined />, [
-  //   getItem("Team 1", "/6"),
-  //   getItem("Team 2", "/8"),
-  // ]),
-  // getItem("Files", "/9", <NotificationOutlined />),
 ];
 
 function SiderComponent({ collapsed, setCollapsed }) {
@@ -67,6 +32,7 @@ function SiderComponent({ collapsed, setCollapsed }) {
   return (
     <Sider
       collapsible
+      theme="dark"
       collapsed={collapsed}
       style={{
         overflow: "auto",
@@ -81,8 +47,7 @@ function SiderComponent({ collapsed, setCollapsed }) {
       }}
     >
       <Space className="demo-logo-vertical">
-        <Avatar />
-        {!collapsed && <Typography.Link to="/">LOGO DESIGN</Typography.Link>}
+        {!collapsed && <Typography.Link to="/" />}
       </Space>
       <Menu
         onClick={handleClick}
@@ -90,7 +55,6 @@ function SiderComponent({ collapsed, setCollapsed }) {
         mode="inline"
         defaultSelectedKeys={pathname}
         items={items}
-        style={{}}
       />
     </Sider>
   );
