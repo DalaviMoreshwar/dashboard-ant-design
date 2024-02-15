@@ -65,7 +65,7 @@ function Home() {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={12} md={8} lg={6}>
+        <Col xs={24} sm={12} md={12} lg={6}>
           <Card bordered={true}>
             <Statistic
               title="Account Balance (CNY)"
