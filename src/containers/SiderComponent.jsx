@@ -32,7 +32,7 @@ function SiderComponent({ collapsed, setCollapsed }) {
   return (
     <Sider
       collapsible
-      theme="dark"
+      theme="light"
       collapsed={collapsed}
       style={{
         overflow: "auto",
@@ -51,7 +51,7 @@ function SiderComponent({ collapsed, setCollapsed }) {
       </Space>
       <Menu
         onClick={handleClick}
-        theme="dark"
+        theme="light"
         mode="inline"
         defaultSelectedKeys={pathname}
         items={items}

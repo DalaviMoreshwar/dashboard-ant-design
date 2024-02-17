@@ -30,9 +30,11 @@ function App() {
       theme={{
         algorithm: theme === "light" ? defaultAlgorithm : darkAlgorithm,
         token: {
-          colorPrimary: theme === "light" ? "#096dd9" : "#d90969",
-          colorInfo: theme === "light" ? "#096dd9" : "#d90969",
-          colorText: theme === "light" ? "#111" : "#f9f9f9",
+          colorPrimary: theme === "light" ? "#096dd9" : "#1890ff",
+          colorInfo: theme === "light" ? "#096dd9" : "#1890ff",
+          colorText: theme === "light" ? "#222" : "#d9d9d9",
+          colorBgContainer: theme === "light" ? "#fff" : "#060c1d",
+          colorBgLayout: theme === "light" ? "#eee" : "#020817",
           fontFamily: "Inter",
         },
       }}

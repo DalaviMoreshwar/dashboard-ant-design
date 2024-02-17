@@ -1,3 +1,7 @@
+root {
+  --color-primary: "#096dd9";
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,6 +12,6 @@ body {
   height: 32px;
   width: auto;
   margin: 16px;
-  background: rgba(255, 255, 255, 0.2);
+  background: #ccc;
   border-radius: 6px;
 }
