@@ -14,7 +14,7 @@ function Container() {
       <Layout
         style={{
           marginLeft: collapsed ? "80px" : "200px",
-          height: "100vh",
+          minHeight: "100vh",
         }}
       >
         <HeaderComponent collapsed={collapsed} setCollapsed={setCollapsed} />
